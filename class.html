@@ -14,21 +14,39 @@
   <script type="text/babel">
     const headerText = "Banana";
     const paragraphText = "La la la la la la";
-        
-    function HeaderComponent(props) {
-      return <h1>{props.text}</h1>;
+
+    class HeaderComponent extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+      render() {
+        return <h1>{this.props.text}</h1>;
+      }
     }
-    function ParagraphComponent(props) {
-      return <p>{props.text}</p>
+
+    class ParagraphComponent extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+      render() {
+      return <p>{this.props.text}</p>
+      }
     }
-    function Wrapper(props) {
-      return (
-        <div>
-          <HeaderComponent text={headerText}/>
-          <ParagraphComponent text={paragraphText} />
-        </div>  
-      );
+
+    class Wrapper extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+      render() {
+        return (
+          <div>
+            <HeaderComponent text={headerText}/>
+            <ParagraphComponent text={paragraphText} />
+          </div>  
+        );
+      }
     }
+
     ReactDOM.render(
       <Wrapper />,
       document.getElementById("app")

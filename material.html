@@ -9,15 +9,35 @@
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app"></div>  
+  <script src="https://unpkg.com/@material-ui/core/umd/material-ui.production.min.js"></script>   
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
+  
+    const {
+      Card,
+      CardContent,
+      Typography,
+      CardActions,
+      Button
+    } = window['material-ui']
+
     function ListItem(props) {
       const myClick = () => {
         props.onClick(props.text)
       }
-      return <li onClick={myClick}>{props.text}</li>
+      return (
+        <Card>
+          <CardContent>
+            <Typography>{props.text}</Typography>
+          </CardContent>
+            <CardActions>
+              <Button onClick={myClick}>Clique Aqui</Button>
+            </CardActions>
+        </Card>
+      )
     }
+
     class FoodList extends React.Component {
       constructor(props) {
         super(props);
